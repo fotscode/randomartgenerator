@@ -3,10 +3,10 @@ COUNT  = 10 # amount of images to generate
 
 import PIL
 from PIL import Image
+import random
 from random import randint
 import os
 import zipfile
-import random
 
 circle1=Image.open("palette/circle1.png")
 circle2=Image.open("palette/circle2.png")
@@ -17,7 +17,6 @@ circle5=Image.open("palette/circle5.png")
 circles=[circle1,circle2,circle3,circle4,circle5]
 
 print("Generating random images")
-
 
 background = Image.open("imgs/whitebackground.png")
 #resize background so it doesn't ocuppies so much space
@@ -34,11 +33,11 @@ for c in range(COUNT):
     circle_count.append(amountofcircles)
     for i in range(amountofcircles):
         degree = randint(0,360)
-        circle_size = randint(40,190)
-        widht = int(circle_size*aspect)
+        img_height = randint(40,190)
+        img_width = int(img_height*aspect)
         
         whatcircle=random.choice(circles)
-        circlef = whatcircle.resize((w,circle_size),resample=PIL.Image.LANCZOS)
+        circlef = whatcircle.resize((img_width,img_height),resample=PIL.Image.LANCZOS)
         
         x = randint(-int(circlef.width/2),background.width - int(circlef.width/2))
         y = randint(-int(circlef.height/2),background.height - int(circlef.height/2))
