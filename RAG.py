@@ -7,8 +7,14 @@ from random import randint
 import os
 import zipfile
 import random
-circle=Image.open("imgs/circle.png")
-circles=["circlegreen1","circlegreen2","circlegreen3","circlegreen4","circlegreen5"]
+
+circle1=Image.open("palette/circle1.png")
+circle2=Image.open("palette/circle2.png")
+circle3=Image.open("palette/circle3.png")
+circle4=Image.open("palette/circle4.png")
+circle5=Image.open("palette/circle5.png")
+
+circles=[circle1,circle2,circle3,circle4,circle5]
 
 print("Generating random images")
 
