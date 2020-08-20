@@ -1,5 +1,5 @@
 
-COUNT  = 10 # How many photos to generate
+COUNT  = 10 # amount of images generated
 
 import PIL
 from PIL import Image
@@ -23,16 +23,16 @@ background = Image.open("imgs/whitebackground.png")
 #resize background so it doesn't ocuppies so much space
 background = background.resize((256,256),resample=PIL.Image.LANCZOS)
 
-aspect = circle.width/circle.height
+aspect = circle1.width/circle1.height
 circle_count = []
 
 z = zipfile.ZipFile("files.zip", "w", zipfile.ZIP_DEFLATED)
 for c in range(COUNT):
     print(c)
     render_img = background.copy()
-    cnt = randint(50,250)
-    circle_count.append(cnt)
-    for i in range(cnt):
+    amountofcircles = randint(50,250)
+    circle_count.append(amountofcircles)
+    for i in range(amountofcircles):
         a = randint(0,360)
         circle_size = randint(40,190)
         w = int(circle_size*aspect)
