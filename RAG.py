@@ -1,5 +1,5 @@
 
-COUNT  = 10 # amount of images generated
+COUNT  = 10 # amount of images to generate
 
 import PIL
 from PIL import Image
@@ -33,20 +33,17 @@ for c in range(COUNT):
     amountofcircles = randint(50,250)
     circle_count.append(amountofcircles)
     for i in range(amountofcircles):
-        a = randint(0,360)
+        degree = randint(0,360)
         circle_size = randint(40,190)
-        w = int(circle_size*aspect)
-
-        whatcircle_txt=random.choices(circles,k=1)
-        whatcircle_txt=whatcircle_txt.pop()
-        whatcircle_img=Image.open("palette/"+whatcircle_txt+".png")
-        circlef = whatcircle_img.resize((w,circle_size),resample=PIL.Image.LANCZOS)
-
-
+        widht = int(circle_size*aspect)
+        
+        whatcircle=random.choice(circles)
+        circlef = whatcircle.resize((w,circle_size),resample=PIL.Image.LANCZOS)
+        
         x = randint(-int(circlef.width/2),background.width - int(circlef.width/2))
         y = randint(-int(circlef.height/2),background.height - int(circlef.height/2))
 
-        circlef = PIL.Image.Image.rotate(circlef,a,resample=PIL.Image.BICUBIC,expand=True)
+        circlef = PIL.Image.Image.rotate(circlef,degree,resample=PIL.Image.BICUBIC,expand=True)
         
         render_img.paste(circlef,(x,y),circlef)
         
